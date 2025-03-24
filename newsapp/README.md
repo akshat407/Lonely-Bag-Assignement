@@ -18,3 +18,19 @@ A simple Flutter news app that fetches and displays news articles from the NewsA
 - Flutter
 - Provider
 - NewsAPI
+
+Demo Video
+https://drive.google.com/file/d/12kmdUPhKewoN_5NBf6UHucyRINP2VPIY/view?usp=sharing
+
+
+ScreenShots
+
+![image](https://github.com/user-attachments/assets/6601b32b-1083-4318-b99f-9022790fe358)
+
+![image](https://github.com/user-attachments/assets/e58750c8-05d7-48cc-9f5a-a6cc742f7758)
+
+![image](https://github.com/user-attachments/assets/d32290c2-4e04-4cb5-ac2c-3836aca923fb)
+
+![image](https://github.com/user-attachments/assets/c333d9fa-fd1b-4b60-aac3-c586dd1afcfe)
+
+
