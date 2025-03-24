@@ -6,11 +6,10 @@ class NewsProvider with ChangeNotifier {
   final NewsService _newsService = NewsService();
   List<Article> _articles = [];
   bool _isLoading = false;
-  bool _isRefreshing = false;  // ✅ Track refreshing state
-
+  bool _isRefreshing = false;  
   List<Article> get articles => _articles;
   bool get isLoading => _isLoading;
-  bool get isRefreshing => _isRefreshing;  // ✅ Getter for refreshing state
+  bool get isRefreshing => _isRefreshing;  
 
   Future<void> fetchNews() async {
     if (_isRefreshing) return;  // Prevent multiple refresh triggers
@@ -24,7 +23,7 @@ class NewsProvider with ChangeNotifier {
       print('Failed to fetch news: $e');
     } finally {
       _isLoading = false;
-      _isRefreshing = false;  // ✅ Reset refreshing state
+      _isRefreshing = false;  
       notifyListeners();
     }
   }

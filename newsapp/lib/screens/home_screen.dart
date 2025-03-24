@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          // ✅ Search Bar
+          
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                         child: Card(
-                          color: cardColor, // ✅ Dynamic background color
+                          color: cardColor, 
                           elevation: 4,
                           margin: const EdgeInsets.all(10),
                           shape: RoundedRectangleBorder(
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
-                                        color: textColor,  // ✅ Dynamic text color
+                                        color: textColor, 
                                       ),
                                     ),
                                     const SizedBox(height: 8),
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       article.description,
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: textColor,  // ✅ Dynamic text color
+                                        color: textColor, 
                                       ),
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
