@@ -5,40 +5,27 @@ import '../services/news_service.dart';
 class NewsProvider with ChangeNotifier {
   final NewsService _newsService = NewsService();
   List<Article> _articles = [];
-  List<Article> _filteredArticles = [];
   bool _isLoading = false;
+  bool _isRefreshing = false;  // ✅ Track refreshing state
 
-  List<Article> get articles => _filteredArticles;
+  List<Article> get articles => _articles;
   bool get isLoading => _isLoading;
+  bool get isRefreshing => _isRefreshing;  // ✅ Getter for refreshing state
 
   Future<void> fetchNews() async {
-    _isLoading = true;
+    if (_isRefreshing) return;  // Prevent multiple refresh triggers
+    _isRefreshing = true;
     notifyListeners();
 
     try {
-      _articles = await _newsService.fetchNews();
-      _filteredArticles = _articles;  // Initially show all articles
+      _isLoading = true;
+      _articles = await _newsService.fetchNews(country: 'us');
     } catch (e) {
-      _articles = [];
-      _filteredArticles = [];
+      print('Failed to fetch news: $e');
+    } finally {
+      _isLoading = false;
+      _isRefreshing = false;  // ✅ Reset refreshing state
+      notifyListeners();
     }
-
-    _isLoading = false;
-    notifyListeners();
-  }
-
-  // New method to filter articles by search term
-  void searchNews(String query) {
-    if (query.isEmpty) {
-      _filteredArticles = _articles;  // Reset to all articles
-    } else {
-      _filteredArticles = _articles
-          .where((article) =>
-              article.title.toLowerCase().contains(query.toLowerCase()) ||
-              article.description.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    }
-    notifyListeners();
   }
 }
-
